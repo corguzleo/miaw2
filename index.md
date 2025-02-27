@@ -10,6 +10,18 @@
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
+            window.addEventListener("onEmbeddedMessagingReady", e => {
+                    embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+                            "_subject": {
+                                "value": "Web Chat",
+                                "isEditableByEndUser": false
+                            }
+                        });
+                        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+                            "userPreAuth": "lbaxter@example.com"
+                        });
+            });
+
 			embeddedservice_bootstrap.init(
 				'00DKc000005GKOK',
 				'Embedding_Web_2',
